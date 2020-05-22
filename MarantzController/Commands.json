@@ -1,0 +1,2793 @@
+{
+  "categoryies": [
+    {
+      "cat": "Power",
+      "subcats": [
+        {
+          "subcat": "POWER",
+          "contents": [
+            {
+              "desc": "POWER ON/STANDBY change\n",
+              "cmds": [
+                { "cmd": "PWON" },
+                { "cmd": "PWSTANDBY" }
+              ]
+            },
+            {
+              "desc": "Request Power Status",
+              "cmds": [
+                { "cmd": "PW?" }
+              ]
+            },
+            {
+              "desc": "MAIN-ZONE ON/OFF change\n",
+              "cmds": [
+                { "cmd": "ZMON" },
+                { "cmd": "ZMOFF" }
+              ]
+            },
+            {
+              "desc": "Request Main Zone Power Status",
+              "cmds": [
+                { "cmd": "ZM?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Auto Standby",
+          "contents": [
+            {
+              "desc": "MAIN ZONE Auto Standby setting\n\n\n",
+              "cmds": [
+                { "cmd": "STBY" },
+                { "cmd": "30M" },
+                { "cmd": "60M" },
+                { "cmd": "OFF" }
+              ]
+            },
+            {
+              "desc": "Request Main Zone Auto Standby Status",
+              "cmds": [
+                { "cmd": "?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "ECO",
+          "contents": [
+            {
+              "desc": "ECO mode setting\n\n",
+              "cmds": [
+                { "cmd": "ECO" },
+                { "cmd": "AUTO" },
+                { "cmd": "OFF" }
+              ]
+            },
+            {
+              "desc": "Request ECO mode Status",
+              "cmds": [
+                { "cmd": "?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Sleep",
+          "contents": [
+            {
+              "desc": "MAIN ZONE SLEEP TIMER setting\n***:001 to 120 by ASCII , 010=10min",
+              "cmds": [
+                { "cmd": "SLP" },
+                { "cmd": "***" }
+              ]
+            },
+            {
+              "desc": "Request Sleep Status",
+              "cmds": [
+                { "cmd": "?" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cat": "Volume Settings",
+      "subcats": [
+        {
+          "subcat": "Volume",
+          "contents": [
+            {
+              "desc": "MASTER VOLUME UP/DOWN , direct change to **dB\n**:00 to 98 by ASCII , 80=0dB, 00=---(MIN)\n",
+              "cmds": [
+                { "cmd": "MVUP" },
+                { "cmd": "MVDOWN" },
+                { "cmd": "MV80" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Direct Volume",
+          "contents": [
+            {
+              "desc": "Request Master Volume Status",
+              "cmds": [
+                { "cmd": "MV?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume FL",
+          "contents": [
+            {
+              "desc": "CHANNEL VOLUME UP/DOWN , direct change to **dB\n---FRONT Lch\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVFL UP" },
+                { "cmd": "CVFL DOWN" },
+                { "cmd": "CVFL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume FR",
+          "contents": [
+            {
+              "desc": "\n---FRONT Rch\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVFR UP" },
+                { "cmd": "CVFR DOWN" },
+                { "cmd": "CVFR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume C",
+          "contents": [
+            {
+              "desc": "\n---CENTERch\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVC UP" },
+                { "cmd": "CVC DOWN" },
+                { "cmd": "CVC 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SW",
+          "contents": [
+            {
+              "desc": "\n---SUBWOOFER 1 ch\n**:00,38 to 62 by ASCII , 50=0dB,00=OFF",
+              "cmds": [
+                { "cmd": "CVSW UP" },
+                { "cmd": "CVSW DOWN" },
+                { "cmd": "CVSW 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SW2",
+          "contents": [
+            {
+              "desc": "\n---SUBWOOFER 2 ch\n**:00,38 to 62 by ASCII , 50=0dB,00=OFF",
+              "cmds": [
+                { "cmd": "CVSW2 UP" },
+                { "cmd": "CVSW2 DOWN" },
+                { "cmd": "CVSW2 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SL",
+          "contents": [
+            {
+              "desc": "\n---SURROUND Lch\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVSL UP" },
+                { "cmd": "CVSL DOWN" },
+                { "cmd": "CVSL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SR",
+          "contents": [
+            {
+              "desc": "\n---SURROUND Rch\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVSR UP" },
+                { "cmd": "CVSR DOWN" },
+                { "cmd": "CVSR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SBL",
+          "contents": [
+            {
+              "desc": "---SURROUND BACK Lch (SBch 2SP)\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVSBL UP" },
+                { "cmd": "CVSBL DOWN" },
+                { "cmd": "CVSBL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SBR",
+          "contents": [
+            {
+              "desc": "---SURROUND BACK Rch (SBch 2SP)\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVSBR UP" },
+                { "cmd": "CVSBR DOWN" },
+                { "cmd": "CVSBR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SB",
+          "contents": [
+            {
+              "desc": "---SURROUND BACK ch      (SBch 1SP)\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVSB UP" },
+                { "cmd": "CVSB DOWN" },
+                { "cmd": "CVSB 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume FHL",
+          "contents": [
+            {
+              "desc": "---FRONT HEIGHT Lch  \n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVFHL UP" },
+                { "cmd": "CVFHL DOWN" },
+                { "cmd": "CVFHL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume FHR",
+          "contents": [
+            {
+              "desc": "---FRONT HEIGHT Rch  \n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVFHR UP" },
+                { "cmd": "CVFHR DOWN" },
+                { "cmd": "CVFHR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume FWL",
+          "contents": [
+            {
+              "desc": "---FRONT WIDE Lch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVFWL UP" },
+                { "cmd": "CVFWL DOWN" },
+                { "cmd": "CVFWL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume FWR",
+          "contents": [
+            {
+              "desc": "---FRONT WIDE Rch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVFWR UP" },
+                { "cmd": "CVFWR DOWN" },
+                { "cmd": "CVFWR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume TFL",
+          "contents": [
+            {
+              "desc": "---TOP FRONT Lch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVTFL UP" },
+                { "cmd": "CVTFL DOWN" },
+                { "cmd": "CVTFL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume TFR",
+          "contents": [
+            {
+              "desc": "---TOP FRONT Rch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVTFR UP" },
+                { "cmd": "CVTFR DOWN" },
+                { "cmd": "CVTFR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume TML",
+          "contents": [
+            {
+              "desc": "---TOP MIDDLE Lch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVTML UP" },
+                { "cmd": "CVTML DOWN" },
+                { "cmd": "CVTML 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume TMR",
+          "contents": [
+            {
+              "desc": "---TOP MIDDLE Rch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVTMR UP" },
+                { "cmd": "CVTMR DOWN" },
+                { "cmd": "CVTMR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume TRL",
+          "contents": [
+            {
+              "desc": "---TOP REAR Lch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVTRL UP" },
+                { "cmd": "CVTRL DOWN" },
+                { "cmd": "CVTRL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume TRR",
+          "contents": [
+            {
+              "desc": "---TOP REAR Rch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVTRR UP" },
+                { "cmd": "CVTRR DOWN" },
+                { "cmd": "CVTRR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume RHL",
+          "contents": [
+            {
+              "desc": "---REAR HEIGHT Lch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVRHL UP" },
+                { "cmd": "CVRHL DOWN" },
+                { "cmd": "CVRHL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume RHR",
+          "contents": [
+            {
+              "desc": "---REAR HEIGHT Rch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVRHR UP" },
+                { "cmd": "CVRHR DOWN" },
+                { "cmd": "CVRHR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume FDL",
+          "contents": [
+            {
+              "desc": "---FRONT DOLBY Lch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVFDL UP" },
+                { "cmd": "CVFDL DOWN" },
+                { "cmd": "CVFDL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume FDR",
+          "contents": [
+            {
+              "desc": "---FRONT DOLBY Rch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVFDR UP" },
+                { "cmd": "CVFDR DOWN" },
+                { "cmd": "CVFDR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SDL",
+          "contents": [
+            {
+              "desc": "---SURROUND DOLBY Lch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVSDL UP" },
+                { "cmd": "CVSDL DOWN" },
+                { "cmd": "CVSDL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SDR",
+          "contents": [
+            {
+              "desc": "---SURROUND DOLBY Rch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVSDR UP" },
+                { "cmd": "CVSDR DOWN" },
+                { "cmd": "CVSDR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume BDL",
+          "contents": [
+            {
+              "desc": "---BACK DOLBY Lch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVBDL UP" },
+                { "cmd": "CVBDL DOWN" },
+                { "cmd": "CVBDL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume BDR",
+          "contents": [
+            {
+              "desc": "---BACK DOLBY Rch\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVBDR UP" },
+                { "cmd": "CVBDR DOWN" },
+                { "cmd": "CVBDR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SHL",
+          "contents": [
+            {
+              "desc": "---SURROUND HEIGHT Lch  (Auro-3D Upgrade only)\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVSHL UP" },
+                { "cmd": "CVSHL DOWN" },
+                { "cmd": "CVSHL 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume SHR",
+          "contents": [
+            {
+              "desc": "---SURROUND HEIGHT Rch  (Auro-3D Upgrade only)\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVSHR UP" },
+                { "cmd": "CVSHR DOWN" },
+                { "cmd": "CVSHR 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume TS",
+          "contents": [
+            {
+              "desc": "---TOP SURROUND  (Auro-3D Upgrade only)\n\n**:38 to 62 by ASCII , 50=0dB",
+              "cmds": [
+                { "cmd": "CVTS UP" },
+                { "cmd": "CVTS DOWN" },
+                { "cmd": "CVTS 50" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume Ch. Vol Reset",
+          "contents": [
+            {
+              "desc": "Reset all channel level to the factory defaults",
+              "cmds": [
+                { "cmd": "CVZRL" }
+              ]
+            },
+            {
+              "desc": "Request All Channel Volume Status",
+              "cmds": [
+                { "cmd": "CV?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Channel Volume Mute",
+          "contents": [
+            {
+              "desc": "OUTPUT MUTE ON/OFF change\n",
+              "cmds": [
+                { "cmd": "MUON" },
+                { "cmd": "MUOFF" }
+              ]
+            },
+            {
+              "desc": "Request Mute Status",
+              "cmds": [
+                { "cmd": "MU?" }
+              ] /* end cmd list */
+            } /* end content */
+          ] /* end content list */
+        } /* end subcat */
+      ] /* end subcat list */
+    }, /* end cat */
+    {
+      "cat": "Input Settings",
+      "subcats": [
+        {
+          "subcat": "INPUT",
+          "contents": [
+            {
+              "desc": "Select INPUT source\n\n\n\n",
+              "cmds": [
+                { "cmd": "SIPHONO" },
+                { "cmd": "SICD" },
+                { "cmd": "SIDVD" },
+                { "cmd": "SIBD" },
+                { "cmd": "SITV" }
+              ]
+            },
+            {
+              "desc": "CBL/SAT",
+              "cmds": [
+                { "cmd": "SISAT/CBL" }
+              ]
+            },
+            {
+              "desc": "MEDIA  PLAYER",
+              "cmds": [
+                { "cmd": "SIMPLAY" }
+              ]
+            },
+            {
+              "desc": "",
+              "cmds": [
+                { "cmd": "SIGAME" }
+              ]
+            },
+            {
+              "desc": "Internet Radio",
+              "cmds": [
+                { "cmd": "SIIRADIO" }
+              ]
+            },
+            {
+              "desc": "",
+              "cmds": [
+                { "cmd": "SISERVER" },
+                { "cmd": "SIFAVORITES" },
+                { "cmd": "SIAUX1" },
+                { "cmd": "SIAUX2" },
+                { "cmd": "SIAUX3" },
+                { "cmd": "SIAUX4" },
+                { "cmd": "SIAUX5" },
+                { "cmd": "SIAUX6" },
+                { "cmd": "SIAUX7" }
+              ]
+            },
+            {
+              "desc": "Online Music",
+              "cmds": [
+                { "cmd": "SINET" }
+              ]
+            },
+            {
+              "desc": "Bluetooth",
+              "cmds": [
+                { "cmd": "SIBT" }
+              ]
+            },
+            {
+              "desc": "",
+              "cmds": [
+                { "cmd": "SIMXPORT" },
+                { "cmd": "SIUSB/IPOD" }
+              ]
+            },
+            {
+              "desc": "Select INPUT source iPod/USB and USB Start Playback",
+              "cmds": [
+                { "cmd": "SIUSB" }
+              ]
+            },
+            {
+              "desc": "Select INPUT source iPod/USB and iPod DIRECT Start Playback",
+              "cmds": [
+                { "cmd": "SIIPD" }
+              ]
+            },
+            {
+              "desc": "Select INPUT source Internet Radio and Recent Play",
+              "cmds": [
+                { "cmd": "SIIRP" }
+              ]
+            },
+            {
+              "desc": "Select INPUT source Online Music and Favorites Play",
+              "cmds": [
+                { "cmd": "SIFVP" }
+              ]
+            },
+            {
+              "desc": "Request Input Source Status",
+              "cmds": [
+                { "cmd": "SI?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Smart Select",
+          "contents": [
+            {
+              "desc": "Smart Select 1-5 call\n\n\n\n",
+              "cmds": [
+                { "cmd": "MSSMART1" },
+                { "cmd": "MSSMART2" },
+                { "cmd": "MSSMART3" },
+                { "cmd": "MSSMART4" },
+                { "cmd": "SMART5" }
+              ]
+            },
+            {
+              "desc": "Smart Select 1-5 memory\n\n\n\n",
+              "cmds": [
+                { "cmd": "MSSMART1 MEMORY" },
+                { "cmd": "MSSMART2 MEMORY" },
+                { "cmd": "MSSMART3 MEMORY" },
+                { "cmd": "MSSMART4 MEMORY" },
+                { "cmd": "MSSMART5 MEMORY" }
+              ]
+            },
+            {
+              "desc": "Cancel Smart Select",
+              "cmds": [
+                { "cmd": "MSSMART0" }
+              ]
+            },
+            {
+              "desc": "Request Smart Select Status",
+              "cmds": [
+                { "cmd": "MSSMART ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Audio Input Signal",
+          "contents": [
+            {
+              "desc": "set AUTO mode  (Priority:HDMI>>DIGITAL>>ANALOG)",
+              "cmds": [
+                { "cmd": "SDAUTO" }
+              ]
+            },
+            {
+              "desc": "set force HDMI INPUT mode",
+              "cmds": [
+                { "cmd": "SDHDMI" }
+              ]
+            },
+            {
+              "desc": "set force DIGITAL INPUT (Optical,Coaxial) mode",
+              "cmds": [
+                { "cmd": "SDDIGITAL" }
+              ]
+            },
+            {
+              "desc": "set force ANALOG INPUT mode",
+              "cmds": [
+                { "cmd": "SDANALOG" }
+              ]
+            },
+            {
+              "desc": "---Set 7.1CH IN mode\n---When no input",
+              "cmds": [
+                { "cmd": "SD7.1IN" },
+                { "cmd": "SDNO" }
+              ]
+            },
+            {
+              "desc": "Request Audio Input Mode Status",
+              "cmds": [
+                { "cmd": "SD?" },
+                { "cmd": "SDARC" },
+                { "cmd": "SDNO" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Audio Decode Mode",
+          "contents": [
+            {
+              "desc": "set the digital input AUTO mode",
+              "cmds": [
+                { "cmd": "DCAUTO" }
+              ]
+            },
+            {
+              "desc": "set digital input force PCM mode",
+              "cmds": [
+                { "cmd": "DCPCM" }
+              ]
+            },
+            {
+              "desc": "set digital input force DTS mode",
+              "cmds": [
+                { "cmd": "DCDTS" }
+              ]
+            },
+            {
+              "desc": "Request Audio Decode Status",
+              "cmds": [
+                { "cmd": "DC?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Video Signal",
+          "contents": [
+            {
+              "desc": "VIDEO SELECT mode set , and select source\n\n",
+              "cmds": [
+                { "cmd": "SVDVD" },
+                { "cmd": "SVBD" },
+                { "cmd": "SVTV" }
+              ]
+            },
+            {
+              "desc": "CBL/SAT",
+              "cmds": [
+                { "cmd": "SVSAT/CBL" }
+              ]
+            },
+            {
+              "desc": "MEDIA PLAYER",
+              "cmds": [
+                { "cmd": "SVMPLAY" }
+              ]
+            },
+            {
+              "desc": "",
+              "cmds": [
+                { "cmd": "SVGAME" },
+                { "cmd": "SVAUX1" },
+                { "cmd": "SVAUX2" },
+                { "cmd": "SVAUX3" },
+                { "cmd": "SVAUX4" },
+                { "cmd": "SVAUX5" },
+                { "cmd": "SVAUX6" },
+                { "cmd": "SVAUX7" },
+                { "cmd": "SVCD" },
+                { "cmd": "SVSOURCE" }
+              ]
+            },
+            {
+              "desc": "VIDEO SELECT mode set to ON",
+              "cmds": [
+                { "cmd": "SVON" }
+              ]
+            },
+            {
+              "desc": "VIDEO SELECT mode set to OFF",
+              "cmds": [
+                { "cmd": "SVOFF" }
+              ]
+            },
+            {
+              "desc": "Request Video Select Status",
+              "cmds": [
+                { "cmd": "SV?" }
+              ] /* end cmd list */
+            } /* end content */
+          ] /* end content list */
+        } /* end subcat */
+      ] /* end subcat list */
+    }, /* end cat */
+    {
+      "cat": "Surround",
+      "subcats": [
+        {
+          "subcat": "Movie",
+          "contents": [
+            {
+              "desc": "Select SURROUND mode",
+              "cmds": [
+                { "cmd": "MSMOVIE" },
+                { "cmd": "MSMUSIC" },
+                { "cmd": "MSGAME" },
+                { "cmd": "MSDIRECT" },
+                { "cmd": "MSPURE DIRECT" },
+                { "cmd": "MSSTEREO" },
+                { "cmd": "MSAUTO" },
+                { "cmd": "MSNEURAL" },
+                { "cmd": "MSSTANDARD" }
+              ]
+            },
+            {
+              "desc": "Request Surround mode Status",
+              "cmds": [
+                { "cmd": "MS?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Dolby Digital",
+          "contents": [
+            {
+              "desc": "Select SURROUND mode",
+              "cmds": [
+                { "cmd": "MSDOLBY DIGITAL" },
+                { "cmd": "MSDOLBY PRO LOGIC" },
+                { "cmd": "MSDOLBY PL2 C" },
+                { "cmd": "MSDOLBY PL2 M" },
+                { "cmd": "MSDOLBY PL2 G" },
+                { "cmd": "MSDOLBY PL2X C" },
+                { "cmd": "MSDOLBY PL2X M" },
+                { "cmd": "MSDOLBY PL2X G" },
+                { "cmd": "MSDOLBY PL2Z H" },
+                { "cmd": "MSDOLBY SURROUND" },
+                { "cmd": "MSDOLBY ATMOS" },
+                { "cmd": "MSDOLBY DIGITAL" },
+                { "cmd": "MSDOLBY D EX" },
+                { "cmd": "MSDOLBY D+PL2X C" },
+                { "cmd": "MSDOLBY D+PL2X M" },
+                { "cmd": "MSDOLBY D+PL2Z H" },
+                { "cmd": "MSDOLBY D+DS" },
+                { "cmd": "MSDOLBY D+NEO:X C" },
+                { "cmd": "MSDOLBY D+NEO:X M" },
+                { "cmd": "MSDOLBY D+NEO:X G" },
+                { "cmd": "MSDOLBY D+NEURAL:X" },
+                { "cmd": "MSDOLBY D+" },
+                { "cmd": "MSDOLBY D+ +EX" },
+                { "cmd": "MSDOLBY D+ +PL2X C" },
+                { "cmd": "MSDOLBY D+ +PL2X M" },
+                { "cmd": "MSDOLBY D+ +PL2Z H" },
+                { "cmd": "MSDOLBY D+ +DS" },
+                { "cmd": "MSDOLBY D+ +NEO:X C" },
+                { "cmd": "MSDOLBY D+ +NEO:X M" },
+                { "cmd": "MSDOLBY D+ +NEO:X G" },
+                { "cmd": "MSDOLBY D+ +NEURAL:X" },
+                { "cmd": "MSDOLBY HD" },
+                { "cmd": "MSDOLBY HD+EX" },
+                { "cmd": "MSDOLBY HD+PL2X C" },
+                { "cmd": "MSDOLBY HD+PL2X M" },
+                { "cmd": "MSDOLBY HD+PL2Z H" },
+                { "cmd": "MSDOLBY HD+DS" },
+                { "cmd": "MSDOLBY HD+NEO:X C" },
+                { "cmd": "MSDOLBY HD+NEO:X M" },
+                { "cmd": "MSDOLBY HD+NEO:X G" },
+                { "cmd": "MSDOLBY HD+NEURAL:X" }
+              ]
+            },
+            {
+              "desc": "Request Surround mode Status",
+              "cmds": [
+                { "cmd": "MS?" }
+              ]
+            }
+          ]
+        },
+		{
+          "subcat": "DTS Surround",
+          "contents": [
+            {
+              "desc": "Select SURROUND mode",
+              "cmds": [
+                { "cmd": "MSDTS NEO:6 C" },
+                { "cmd": "MSDTS NEO:6 M" },
+                { "cmd": "MSDTS NEO:X C" },
+                { "cmd": "MSDTS NEO:X M" },
+                { "cmd": "MSDTS NEO:X G" },
+                { "cmd": "MSNEURAL:X" },
+                { "cmd": "MSDTS SURROUND" },
+                { "cmd": "MSDTS ES DSCRT6.1" },
+                { "cmd": "MSDTS ES MTRX6.1" },
+                { "cmd": "MSDTS+PL2X C" },
+                { "cmd": "MSDTS+PL2X M" },
+                { "cmd": "MSDTS+PL2Z H" },
+                { "cmd": "MSDTS+DS" },
+                { "cmd": "MSDTS+NEO:6" },
+                { "cmd": "MSDTS+NEO:X C" },
+                { "cmd": "MSDTS+NEO:X M" },
+                { "cmd": "MSDTS+NEO:X G" },
+                { "cmd": "MSDTS+NEURAL:X" },
+                { "cmd": "MSDTS ES MTRX+NEURAL:X" },
+                { "cmd": "MSDTS ES DSCRT+NEURAL:X" },
+                { "cmd": "MSDTS96/24" },
+                { "cmd": "MSDTS96 ES MTRX" },
+                { "cmd": "MSDTS HD" },
+                { "cmd": "MSDTS HD MSTR" },
+                { "cmd": "MSDTS HD+PL2X C" },
+                { "cmd": "MSDTS HD+PL2X M" },
+                { "cmd": "MSDTS HD+PL2Z H" },
+                { "cmd": "MSDTS HD+DS" },
+                { "cmd": "MSDTS HD+NEO:6" },
+                { "cmd": "MSDTS HD+NEO:X C" },
+                { "cmd": "MSDTS HD+NEO:X M" },
+                { "cmd": "MSDTS HD+NEO:X G" },
+                { "cmd": "MSDTS HD+NEURAL:X" },
+                { "cmd": "MSDTS:X" },
+                { "cmd": "MSDTS:X MSTR" },
+                { "cmd": "MSDTS EXPRESS" },
+                { "cmd": "MSDTS ES 8CH DSCRT" }
+              ]
+            },
+            {
+              "desc": "Request Surround mode Status",
+              "cmds": [
+                { "cmd": "MS?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Multi Channel",
+          "contents": [
+            {
+              "desc": "Select SURROUND mode",
+              "cmds": [
+                { "cmd": "MSMULTI CH IN" },
+                { "cmd": "MSM CH IN+DOLBY EX" },
+                { "cmd": "MSM CH IN+PL2X C" },
+                { "cmd": "MSM CH IN+PL2X M" },
+                { "cmd": "MSM CH IN+PL2Z H" },
+                { "cmd": "MSM CH IN+DS" },
+                { "cmd": "MSM CH IN+NEO:X C" },
+                { "cmd": "MSM CH IN+NEO:X M" },
+                { "cmd": "MSM CH IN+NEO:X G" },
+                { "cmd": "MSM CH IN+NEURAL:X" },
+                { "cmd": "MSMULTI CH IN 7.1" },
+                { "cmd": "MSPL DSX" },
+                { "cmd": "MSPL2 C DSX" },
+                { "cmd": "MSPL2 M DSX" },
+                { "cmd": "MSPL2 G DSX" },
+                { "cmd": "MSNEO:6 C DSX" },
+                { "cmd": "MSNEO:6 M DSX" },
+                { "cmd": "MSAUDYSSEY DSX" }
+              ]
+            },
+            {
+              "desc": "Request Surround mode Status",
+              "cmds": [
+                { "cmd": "MS?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Dual Channel",
+          "contents": [
+            {
+              "desc": "Select SURROUND mode",
+              "cmds": [
+                { "cmd": "MSMCH STEREO" },
+                { "cmd": "MSVIRTUAL" },
+                { "cmd": "MSLEFT" },
+                { "cmd": "MSRIGHT" }
+              ]
+            },
+            {
+              "desc": "Request Surround mode Status",
+              "cmds": [
+                { "cmd": "MS?" }
+              ] /* end cmd list */
+            } /* end content */
+          ] /* end content list */
+        } /* end subcat */
+      ] /* end subcat list */
+    }, /* end cat */
+    {
+      "cat": "Aspect",
+      "subcats": [
+        {
+          "subcat": "Set Aspect",
+          "contents": [
+            {
+              "desc": "Set Normal(4:3) mode",
+              "cmds": [
+                { "cmd": "VSASPNRM" }
+              ]
+            },
+            {
+              "desc": "Set Full(16:9) mode",
+              "cmds": [
+                { "cmd": "VSASPFUL" }
+              ]
+            },
+            {
+              "desc": "Request Aspect Status",
+              "cmds": [
+                { "cmd": "VSASP ?" }
+              ] /* end cmd list */
+            } /* end content */
+          ] /* end content list */
+        } /* end subcat */
+      ] /* end subcat list */
+    }, /* end cat */
+    {
+      "cat": "HDMI Settings",
+      "subcats": [
+        {
+          "subcat": "HDMI Out",
+          "contents": [
+            {
+              "desc": "Set HDMI MONITOR automatic detection",
+              "cmds": [
+                { "cmd": "VSMONIAUTO" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "HDMI Output",
+          "contents": [
+            {
+              "desc": "Set HDMI MONITOR OUT-1",
+              "cmds": [
+                { "cmd": "VSMONI1" }
+              ]
+            },
+            {
+              "desc": "Set HDMI MONITOR OUT-2",
+              "cmds": [
+                { "cmd": "VSMONI2" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "HDMI Resolution",
+          "contents": [
+            {
+              "desc": "Request HDMI monitor output Status",
+              "cmds": [
+                { "cmd": "VSMONI ?" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 480p/576p ",
+              "cmds": [
+                { "cmd": "VSSC48P" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 1080i",
+              "cmds": [
+                { "cmd": "VSSC10I" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 720p",
+              "cmds": [
+                { "cmd": "VSSC72P" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 1080p",
+              "cmds": [
+                { "cmd": "VSSC10P" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 1080p:24Hz",
+              "cmds": [
+                { "cmd": "VSSC10P24" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 4K",
+              "cmds": [
+                { "cmd": "VSSC4K" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 4K 60/50",
+              "cmds": [
+                { "cmd": "VSSC4KF" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to AUTO",
+              "cmds": [
+                { "cmd": "VSSCAUTO" }
+              ]
+            },
+            {
+              "desc": "Request HDMI output Status",
+              "cmds": [
+                { "cmd": "VSSC ?" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 480p/576p (HDMI)",
+              "cmds": [
+                { "cmd": "VSSCH48P" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 1080i(HDMI)",
+              "cmds": [
+                { "cmd": "VSSCH10I" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 720p(HDMI)",
+              "cmds": [
+                { "cmd": "VSSCH72P" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 1080p(HDMI)",
+              "cmds": [
+                { "cmd": "VSSCH10P" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 1080p:24Hz(HDMI)",
+              "cmds": [
+                { "cmd": "VSSCH10P24" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 4K(HDMI)",
+              "cmds": [
+                { "cmd": "VSSCH4K" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to 4K  60/50(HDMI)",
+              "cmds": [
+                { "cmd": "VSSC4KF" }
+              ]
+            },
+            {
+              "desc": "Set Resolution to AUTO(HDMI)",
+              "cmds": [
+                { "cmd": "VSSCHAUTO" }
+              ]
+            },
+            {
+              "desc": "Request HDMI Resolution Status",
+              "cmds": [
+                { "cmd": "VSSCH ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Vertical Stretch",
+          "contents": [
+            {
+              "desc": "Set Vertical Stretch to ON",
+              "cmds": [
+                { "cmd": "VSVST ON" }
+              ]
+            },
+            {
+              "desc": "Set Vertical Stretch to OFF",
+              "cmds": [
+                { "cmd": "VSVST OFF" }
+              ]
+            },
+            {
+              "desc": "Request Vertical Stretch Status",
+              "cmds": [
+                { "cmd": "VSVST ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "HDMI Audio Decode",
+          "contents": [
+            {
+              "desc": "Set HDMI AUDIO Output to AMP ",
+              "cmds": [
+                { "cmd": "VSAUDIO AMP" }
+              ]
+            },
+            {
+              "desc": "Set HDMI AUDIO Output to TV",
+              "cmds": [
+                { "cmd": "VSAUDIO TV" }
+              ]
+            },
+            {
+              "desc": "Request HDMI Audio Decode Status",
+              "cmds": [
+                { "cmd": "VSAUDIO ?" }
+              ] /* end cmd list */
+            } /* end content */
+          ] /* end content list */
+        } /* end subcat */
+      ] /* end subcat list */
+    }, /* end cat */
+    {
+      "cat": "Video Process",
+      "subcats": [
+        {
+          "subcat": "Video Process",
+          "contents": [
+            {
+              "desc": "Set Video Processing  Mode to AUTO",
+              "cmds": [
+                { "cmd": "VSVPMAUTO" }
+              ]
+            },
+            {
+              "desc": "Set Video Processing  Mode to GAME",
+              "cmds": [
+                { "cmd": "VSVPMGAME" }
+              ]
+            },
+            {
+              "desc": "Set Video Processing  Mode to MOVIE",
+              "cmds": [
+                { "cmd": "VSVPMMOVI" }
+              ]
+            },
+            {
+              "desc": "Request Video Process Status",
+              "cmds": [
+                { "cmd": "VSVPM ?" }
+              ] /* end cmd list */
+            } /* end content */
+          ] /* end content list */
+        } /* end subcat */
+      ] /* end subcat list */
+    }, /* end cat */
+    {
+      "cat": "Audio Settings",
+      "subcats": [
+        {
+          "subcat": "Speaker A/B",
+          "contents": [
+            {
+              "desc": "FRONT SPEAKER direct change\n\n",
+              "cmds": [
+                { "cmd": "PSFRONT SPA" },
+                { "cmd": "PSFRONT SPB" },
+                { "cmd": "PSFRONT A+B" }
+              ]
+            },
+            {
+              "desc": "Request Front Speaker A/B Status",
+              "cmds": [
+                { "cmd": "PSFRONT?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Effect Speaker Selection",
+          "contents": [
+            {
+              "desc": "Floor",
+              "cmds": [
+                { "cmd": "PSSP:FL" }
+              ]
+            },
+            {
+              "desc": "Height&Floor",
+              "cmds": [
+                { "cmd": "PSSP:HF" }
+              ]
+            },
+            {
+              "desc": "Front",
+              "cmds": [
+                { "cmd": "PSSP:FR" }
+              ]
+            },
+            {
+              "desc": "Request Speaker Output Status",
+              "cmds": [
+                { "cmd": "PSSP: ?" }
+              ]
+            },
+            {
+              "desc": "Front Height output change\n",
+              "cmds": [
+                { "cmd": "PSFH:ON" },
+                { "cmd": "PSFH:OFF" }
+              ]
+            },
+            {
+              "desc": "Request Front Height Output Status",
+              "cmds": [
+                { "cmd": "PSFH: ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Subwoofer",
+          "contents": [
+            {
+              "desc": "SW ON/OFF",
+              "cmds": [
+                { "cmd": "PSSWR ON" }
+              ]
+            },
+            {
+              "desc": "DIRECT,STEREO(2ch) mode",
+              "cmds": [
+                { "cmd": "PSSWR OFF" }
+              ]
+            },
+            {
+              "desc": "Request Subwoofer Output Status",
+              "cmds": [
+                { "cmd": "PSSWR ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "TONE Control",
+          "contents": [
+            {
+              "desc": "PARAMETER setting",
+              "cmds": [
+                { "cmd": "PSTONE CTRL ON" }
+              ]
+            },
+            {
+              "desc": "TONE CONTROL ON/OFF",
+              "cmds": [
+                { "cmd": "PSTONE CTRL OFF" }
+              ]
+            },
+            {
+              "desc": "Request Tone Control Status",
+              "cmds": [
+                { "cmd": "PSTONE CTRL ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "BASS",
+          "contents": [
+            {
+              "desc": "BASS UP/DOWN , direct change to **dB\n**:00 to 99 by ASCII , 50=0dB\n from -6 to +6(44 to 56)",
+              "cmds": [
+                { "cmd": "PSBAS UP" },
+                { "cmd": "PSBAS DOWN" },
+                { "cmd": "PSBAS 50" }
+              ]
+            },
+            {
+              "desc": "Request Bass Status",
+              "cmds": [
+                { "cmd": "PSBAS ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "TREBLE",
+          "contents": [
+            {
+              "desc": "TREBLE UP/DOWN , direct change to **dB\n**:00 to 99 by ASCII , 50=0dB \n from -6 to +6(44 to 56)",
+              "cmds": [
+                { "cmd": "PSTRE UP" },
+                { "cmd": "PSTRE DOWN" },
+                { "cmd": "PSTRE 50" }
+              ]
+            },
+            {
+              "desc": "Request Treble Status",
+              "cmds": [
+                { "cmd": "PSTRE ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Loudness Enhancement",
+          "contents": [
+            {
+              "desc": "Loudness Management, ON/OFF direct change\n",
+              "cmds": [
+                { "cmd": "PSLOM ON" },
+                { "cmd": "PSLOM OFF" }
+              ]
+            },
+            {
+              "desc": "Request Loudness Management Status",
+              "cmds": [
+                { "cmd": "PSLOM ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "BASS Sync",
+          "contents": [
+            {
+              "desc": "Bass Sync UP/DOWN , direct change to **dB\n**:00 to 99 by ASCII , 00=0\n from 0 to 16",
+              "cmds": [
+                { "cmd": "PSBSC UP" },
+                { "cmd": "PSBSC DOWN" },
+                { "cmd": "PSBSC 50" }
+              ]
+            },
+            {
+              "desc": "Return Bass Sync Status",
+              "cmds": [
+                { "cmd": "PSBSC ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Dialog Enhancer",
+          "contents": [
+            {
+              "desc": "Dialog Enhancer direct change\n\n\n",
+              "cmds": [
+                { "cmd": "PSDEH OFF" },
+                { "cmd": "PSDEH LOW" },
+                { "cmd": "PSDEH MED" },
+                { "cmd": "PSDEH HIGH" }
+              ]
+            },
+            {
+              "desc": "Return Dialog Enhancer Status",
+              "cmds": [
+                { "cmd": "PSDEH ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Subwoofer Level",
+          "contents": [
+            {
+              "desc": "Subwoofer Level Adjust = ON",
+              "cmds": [
+                { "cmd": "PSSWL ON" }
+              ]
+            },
+            {
+              "desc": "Subwoofer Level Adjust = OFF",
+              "cmds": [
+                { "cmd": "PSSWL OFF" }
+              ]
+            },
+            {
+              "desc": "Subwoofer1 Level UP/DOWN , direct change to **dB\n**:38 to 62 by ASCII , 50=0dB\n",
+              "cmds": [
+                { "cmd": "PSSWL  UP" },
+                { "cmd": "PSSWL  DOWN" },
+                { "cmd": "PSSWL2  50" }
+              ]
+            },
+            {
+              "desc": "Subwoofer2 Level UP/DOWN , direct change to **dB\n**:38 to 62 by ASCII , 50=0dB\n",
+              "cmds": [
+                { "cmd": "PSSWL2  UP" },
+                { "cmd": "PSSWL2  DOWN" },
+                { "cmd": "PSSWL2  50" }
+              ]
+            },
+            {
+              "desc": "Return Subwoofer Level  Status",
+              "cmds": [
+                { "cmd": "PSSWL ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Dialog Level",
+          "contents": [
+            {
+              "desc": "Dialog Level Adjust = ON",
+              "cmds": [
+                { "cmd": "PSDIL ON" }
+              ]
+            },
+            {
+              "desc": "Dialog Level Adjust = OFF",
+              "cmds": [
+                { "cmd": "PSDIL OFF" }
+              ]
+            },
+            {
+              "desc": "Dialog Level UP/DOWN , direct change to **dB\n**:38 to 62 by ASCII , 50=0dB\n",
+              "cmds": [
+                { "cmd": "PSDIL UP" },
+                { "cmd": "PSDIL DOWN" },
+                { "cmd": "PSDIL 50" }
+              ]
+            },
+            {
+              "desc": "Return Dialog Level  Status",
+              "cmds": [
+                { "cmd": "PSDIL ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "LFE",
+          "contents": [
+            {
+              "desc": "LFE UP/DOWN , direct change to **dB\n**:00 to 99 by ASCII , 00=0dB, 10=-10dB\n from 0 to -10",
+              "cmds": [
+                { "cmd": "PSLEE UP" },
+                { "cmd": "PSLFE DOWN" },
+                { "cmd": "PSLFE 10" }
+              ]
+            },
+            {
+              "desc": "Request LFE Status",
+              "cmds": [
+                { "cmd": "PSLFE ?" }
+              ]
+            },
+            {
+              "desc": "LFE Level direct change(When input mode is 7.1CH IN)\n\n\n",
+              "cmds": [
+                { "cmd": "PSLFL 00" },
+                { "cmd": "PSLFL 05" },
+                { "cmd": "PSLFL 10" },
+                { "cmd": "PSLFL 15" }
+              ]
+            },
+            {
+              "desc": "Return LFE Status",
+              "cmds": [
+                { "cmd": "PSLFL ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Center Spread",
+          "contents": [
+            {
+              "desc": "CENTER SPREAD ON/OFF\n",
+              "cmds": [
+                { "cmd": "PSCES ON" },
+                { "cmd": "PSCES OFF" }
+              ]
+            },
+            {
+              "desc": "Request PSPAN Status",
+              "cmds": [
+                { "cmd": "PSCES ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Center Gain",
+          "contents": [
+            {
+              "desc": "CENTER GAIN UP/DOWN , direct change to **dB\n**:00 to 99 by ASCII , 00=0.0\n from 0.0 to 1.0",
+              "cmds": [
+                { "cmd": "PSCEG UP" },
+                { "cmd": "PSCEG DOWN" },
+                { "cmd": "PSCEG 10" }
+              ]
+            },
+            {
+              "desc": "Request Center Gain Status",
+              "cmds": [
+                { "cmd": "PSCEG ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Dialog Control",
+          "contents": [
+            {
+              "desc": "Dialog Control UP/DOWN , direct change to **dB\n**:00 to 99 by ASCII , 00=0,\n from 0 to 6",
+              "cmds": [
+                { "cmd": "PSDIC UP" },
+                { "cmd": "PSDIC DOWN" },
+                { "cmd": "PSDIC 03" }
+              ]
+            },
+            {
+              "desc": "Request Center Gain Status",
+              "cmds": [
+                { "cmd": "PSDIC ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Neural:X",
+          "contents": [
+            {
+              "desc": "Neural:X ON/OFF\n",
+              "cmds": [
+                { "cmd": "PSNEURAL ON" },
+                { "cmd": "PSNEURAL OFF" }
+              ]
+            },
+            {
+              "desc": "Request PSNEURAL Status",
+              "cmds": [
+                { "cmd": "PSNEURAL ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Audyssey DSX",
+          "contents": [
+            {
+              "desc": "Audyssey DSX ON(Wide/Height)",
+              "cmds": [
+                { "cmd": "PSDSX ONHW" }
+              ]
+            },
+            {
+              "desc": "Audyssey DSX ON(Height)",
+              "cmds": [
+                { "cmd": "PSDSX ONH" }
+              ]
+            },
+            {
+              "desc": "Audyssey DSX ON(Width)",
+              "cmds": [
+                { "cmd": "PSDSX ONW" }
+              ]
+            },
+            {
+              "desc": "Audyssey DSX OFF",
+              "cmds": [
+                { "cmd": "PSDSX OFF" }
+              ]
+            },
+            {
+              "desc": "Request  Audyssey DSX Status",
+              "cmds": [
+                { "cmd": "PSDSX ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Stage Width",
+          "contents": [
+            {
+              "desc": "STAGE WIDTH UP/DOWN , direct change to **dB\n**:00 to 99 by ASCII , 50=0dB\n from -10 to +10(40 to 60)",
+              "cmds": [
+                { "cmd": "PSSTW UP" },
+                { "cmd": "PSSTW DOWN" },
+                { "cmd": "PSSTW **" }
+              ]
+            },
+            {
+              "desc": "Request Width Status",
+              "cmds": [
+                { "cmd": "PSSTW ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Stage Height",
+          "contents": [
+            {
+              "desc": "STAGE HEIGHT UP/DOWN , direct change to **dB\n**:00 to 99 by ASCII , 50=0dB \n from -10 to +10(40 to 60)",
+              "cmds": [
+                { "cmd": "PSSTH UP" },
+                { "cmd": "PSSTH DOWN" },
+                { "cmd": "PSSTH 50" }
+              ]
+            },
+            {
+              "desc": "Request Height Status",
+              "cmds": [
+                { "cmd": "PSSTH ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Cinema EQ",
+          "contents": [
+            {
+              "desc": "CINEMA EQ. ON (HT-EQ ON)",
+              "cmds": [
+                { "cmd": "PSCINEMA EQ.ON" }
+              ]
+            },
+            {
+              "desc": "CINEMA EQ. OFF (HT-EQ OFF)",
+              "cmds": [
+                { "cmd": "PSCINEMA EQ.OFF" }
+              ]
+            },
+            {
+              "desc": "Request CINEMA EQ Status",
+              "cmds": [
+                { "cmd": "PSCINEMA EQ. ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Multi EQ",
+          "contents": [
+            {
+              "desc": "AUDYSSEY= Reference\nBYP.LR= L/R Bypass\n\n",
+              "cmds": [
+                { "cmd": "PSMULTEQ:AUDYSSEY" },
+                { "cmd": "PSMULTEQ:BYP.LR" },
+                { "cmd": "PSMULTEQ:FLAT" },
+                { "cmd": "PSMULTEQ:OFF" }
+              ]
+            },
+            {
+              "desc": "Request MultEQ Status",
+              "cmds": [
+                { "cmd": "PSMULTEQ ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Dynamic EQ",
+          "contents": [
+            {
+              "desc": "Dynamic EQ = ON",
+              "cmds": [
+                { "cmd": "PSDYNEQ ON" }
+              ]
+            },
+            {
+              "desc": "Dynamic EQ = OFF",
+              "cmds": [
+                { "cmd": "PSDYNEQ OFF" }
+              ]
+            },
+            {
+              "desc": "Request Dynamic EQ Status",
+              "cmds": [
+                { "cmd": "PSDYNEQ ?" }
+              ]
+            },
+            {
+              "desc": "Reference Level Offset=0dB",
+              "cmds": [
+                { "cmd": "PSREFLEV 0" }
+              ]
+            },
+            {
+              "desc": "Reference Level Offset=5dB",
+              "cmds": [
+                { "cmd": "PSREFLEV 5" }
+              ]
+            },
+            {
+              "desc": "Reference Level Offset=10dB",
+              "cmds": [
+                { "cmd": "PSREFLEV 10" }
+              ]
+            },
+            {
+              "desc": "Reference Level Offset=15dB",
+              "cmds": [
+                { "cmd": "PSREFLEV 15" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Dynamic Volume",
+          "contents": [
+            {
+              "desc": "Request Dynamic EQ Reference Level Status",
+              "cmds": [
+                { "cmd": "PSREFREV ?" }
+              ]
+            },
+            {
+              "desc": "Dynamic Vol = Heavy",
+              "cmds": [
+                { "cmd": "PSDYNVOL HEV" }
+              ]
+            },
+            {
+              "desc": "Dynamic Vol = Medium",
+              "cmds": [
+                { "cmd": "PSDYNVOL MED" }
+              ]
+            },
+            {
+              "desc": "Dynamic Vol = Light",
+              "cmds": [
+                { "cmd": "PSDYNVOL LIT" }
+              ]
+            },
+            {
+              "desc": "Dynamic VOLUME = OFF",
+              "cmds": [
+                { "cmd": "DYNVOL OFF" }
+              ]
+            },
+            {
+              "desc": "Request Dynamic Volume Status",
+              "cmds": [
+                { "cmd": "PSDYNVOL ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Audyssey LFC",
+          "contents": [
+            {
+              "desc": "Audyssey LFC = ON",
+              "cmds": [
+                { "cmd": "PSLFC ON" }
+              ]
+            },
+            {
+              "desc": "Audyssey LFC = OFF",
+              "cmds": [
+                { "cmd": "PSLFC OFF" }
+              ]
+            },
+            {
+              "desc": "Request  Audyssey LFC Status",
+              "cmds": [
+                { "cmd": "PSLFC ?" }
+              ]
+            },
+            {
+              "desc": "Containment Amount UP/DOWN , direct change to **\n**:00 to 99 by ASCII , 00=0,  from 1 to 7 (01 to 07)\n",
+              "cmds": [
+                { "cmd": "PSCNTAMT UP" },
+                { "cmd": "PSCNTAMT DOWN" },
+                { "cmd": "PSCNTAMT 07" }
+              ]
+            },
+            {
+              "desc": "Return Containment Amount Status",
+              "cmds": [
+                { "cmd": "PSCNTAMT ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Graphic EQ",
+          "contents": [
+            {
+              "desc": "Graphic EQ = ON",
+              "cmds": [
+                { "cmd": "PSGEQ ON" }
+              ]
+            },
+            {
+              "desc": "Graphic EQ = OFF",
+              "cmds": [
+                { "cmd": "PSGEQ OFF" }
+              ]
+            },
+            {
+              "desc": "Return Graphic EQ Status",
+              "cmds": [
+                { "cmd": "PSGEQ ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Headphone EQ",
+          "contents": [
+            {
+              "desc": "Headphone EQ = ON",
+              "cmds": [
+                { "cmd": "PSHEQ ON" }
+              ]
+            },
+            {
+              "desc": "Headphone EQ = OFF",
+              "cmds": [
+                { "cmd": "PSHEQ OFF" }
+              ]
+            },
+            {
+              "desc": "Return Headphone EQ Status",
+              "cmds": [
+                { "cmd": "PSHEQ ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "DRC",
+          "contents": [
+            {
+              "desc": "DRC direct change\n\n\n\n",
+              "cmds": [
+                { "cmd": "PSDRC AUTO" },
+                { "cmd": "PSDRC LOW" },
+                { "cmd": "PSDRC MID" },
+                { "cmd": "PSDRC HI" },
+                { "cmd": "PSDRC OFF" }
+              ]
+            },
+            {
+              "desc": "Request DRC status",
+              "cmds": [
+                { "cmd": "PSDRC ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "M-Dax",
+          "contents": [
+            {
+              "desc": "M-DAX Off",
+              "cmds": [
+                { "cmd": "PSMDAX OFF" }
+              ]
+            },
+            {
+              "desc": "M-DAX Low",
+              "cmds": [
+                { "cmd": "PSMDAX LOW" }
+              ]
+            },
+            {
+              "desc": "M-DAX Mid",
+              "cmds": [
+                { "cmd": "PSMDAX MID" }
+              ]
+            },
+            {
+              "desc": "M-DAX High",
+              "cmds": [
+                { "cmd": "PSMDAX HI" }
+              ]
+            },
+            {
+              "desc": "Request M-DAX Status",
+              "cmds": [
+                { "cmd": "PSMDAX ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Audio Delay",
+          "contents": [
+            {
+              "desc": "AUDIO DELAY UP/DOWN , direct change to ***dB\n***:000 to 999 by ASCII , 000=0ms, 200=200ms\n from 0 to 500",
+              "cmds": [
+                { "cmd": "PSDELAY UP" },
+                { "cmd": "PSDELAY DOWN" },
+                { "cmd": "PSDELAY 200" }
+              ]
+            },
+            {
+              "desc": "Request Audio Delay Status",
+              "cmds": [
+                { "cmd": "PSDELAY?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Auro-Matic 3D Preset",
+          "contents": [
+            {
+              "desc": "Auro-Matic 3D Preset direct change (Auro-3D Upgrade only)\n\n\n",
+              "cmds": [
+                { "cmd": "PSAUROPR SMA" },
+                { "cmd": "PSAUROPR MED" },
+                { "cmd": "PSAUROPR LAR" },
+                { "cmd": "PSAUROPR SPE" }
+              ]
+            },
+            {
+              "desc": "Request Auro-Matic 3D Preset Status",
+              "cmds": [
+                { "cmd": "PSAUROPR ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Auro-Matic 3D Strength",
+          "contents": [
+            {
+              "desc": "Auro-Matic 3D Strength UP/DOWN , direct change to ** (Auro-3D Upgrade only)\n**:00 to 99 by ASCII , 01=1, 10=10\n from 1 to 16",
+              "cmds": [
+                { "cmd": "PSAUROST UP" },
+                { "cmd": "PSAUROST DOWN" },
+                { "cmd": "PSAUROST 10" }
+              ]
+            },
+            {
+              "desc": "RequestAuro-Matic 3D Strength Status",
+              "cmds": [
+                { "cmd": "PSAUROST ?" }
+              ] /* end cmd list */
+            } /* end content */
+          ] /* end content list */
+        } /* end subcat */
+      ] /* end subcat list */
+    }, /* end cat */
+    {
+      "cat": "Video Settings",
+      "subcats": [
+        {
+          "subcat": "Picture Mode",
+          "contents": [
+            {
+              "desc": "Picture Mode = OFF",
+              "cmds": [
+                { "cmd": "PVOFF" }
+              ]
+            },
+            {
+              "desc": "Picture Mode = Standard",
+              "cmds": [
+                { "cmd": "PVSTD" }
+              ]
+            },
+            {
+              "desc": "Picture Mode = Movie",
+              "cmds": [
+                { "cmd": "PVMOV" }
+              ]
+            },
+            {
+              "desc": "Picture Mode = Vivid",
+              "cmds": [
+                { "cmd": "PVVVD" }
+              ]
+            },
+            {
+              "desc": "Picture Mode = Stream",
+              "cmds": [
+                { "cmd": "PVSTM" }
+              ]
+            },
+            {
+              "desc": "Picture Mode = Custom",
+              "cmds": [
+                { "cmd": "PVCTM" }
+              ]
+            },
+            {
+              "desc": "Picture Mode = ISF Day",
+              "cmds": [
+                { "cmd": "PVDAY" }
+              ]
+            },
+            {
+              "desc": "Picture Mode = ISF Night",
+              "cmds": [
+                { "cmd": "PVNGT" }
+              ]
+            },
+            {
+              "desc": "Request Picture Mode Status",
+              "cmds": [
+                { "cmd": "PV?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Contrast",
+          "contents": [
+            {
+              "desc": "CONTRAST  UP/DOWN , direct change to **dB,  ***dB(FY14)\n\n **:44 to 56 by ASCII , 50=0 from -6 to +6(44 to 56)\n***:000 to 100 by ASCII , 050=0   from -50 to +50(000 to 100) ( FY14)",
+              "cmds": [
+                { "cmd": "PVCN UP" },
+                { "cmd": "PVCN DOWN" },
+                { "cmd": "PVCN **" },
+                { "cmd": "PVCN ***" }
+              ]
+            },
+            {
+              "desc": "Request Contrast Status",
+              "cmds": [
+                { "cmd": "PVCN ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Brightness",
+          "contents": [
+            {
+              "desc": "BRIGHTNESS UP/DOWN , direct change to **dB,  ***dB(FY14)\n\n**:00 to 12 by ASCII , 00=0   from  0 to 12\n***:000 to 100 by ASCII , 050=0   from -50 to +50(000 to 100) ( FY14)",
+              "cmds": [
+                { "cmd": "PVBR UP" },
+                { "cmd": "PVBR DOWN" },
+                { "cmd": "PVBR 50" },
+                { "cmd": "PVCN 050" }
+              ]
+            },
+            {
+              "desc": "Request Brightness Status",
+              "cmds": [
+                { "cmd": "PVBR ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Chroma",
+          "contents": [
+            {
+              "desc": "Chroma level UP/DOWN , direct change to **dB\n**:44 to 56 by ASCII , 50=0\n from -6 to +6(44 to 56)",
+              "cmds": [
+                { "cmd": "PVCM UP" },
+                { "cmd": "PVCM DOWN" },
+                { "cmd": "PVCM 50" }
+              ]
+            },
+            {
+              "desc": "Request Chroma Status",
+              "cmds": [
+                { "cmd": "PVCM ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Saturation",
+          "contents": [
+            {
+              "desc": "Saturation UP/DOWN , direct change to **dB,  ***dB(FY14)\n\n **:44 to 56 by ASCII , 50=0   from -6 to +6(44 to 56)\n***:000 to 100 by ASCII , 050=0   from -50 to +50(000 to 100) ( FY14)",
+              "cmds": [
+                { "cmd": "PVST UP" },
+                { "cmd": "PVST DOWN" },
+                { "cmd": "PVST 50" },
+                { "cmd": "PVST 050" }
+              ]
+            },
+            {
+              "desc": "Request Saturation Status",
+              "cmds": [
+                { "cmd": "PVST ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "DNR",
+          "contents": [
+            {
+              "desc": "Noise Reduction direct change\n\n\n",
+              "cmds": [
+                { "cmd": "PVDNR OFF" },
+                { "cmd": "PVDNR LOW" },
+                { "cmd": "PVDNR MID" },
+                { "cmd": "PVDNR HI" }
+              ]
+            },
+            {
+              "desc": "Request Noise Reduction Status",
+              "cmds": [
+                { "cmd": "PVDNR ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Enhancer",
+          "contents": [
+            {
+              "desc": "ENHANCER UP/DOWN, direct change to **dB\n **:00 to 12 by ASCII, 00=0\n from  0 to 12",
+              "cmds": [
+                { "cmd": "PVENH UP" },
+                { "cmd": "PVENH DOWN" },
+                { "cmd": "PVENH 12" }
+              ]
+            },
+            {
+              "desc": "Request PVENH Status",
+              "cmds": [
+                { "cmd": "PVENH ?" }
+              ] /* end cmd list */
+            } /* end content */
+          ] /* end content list */
+        } /* end subcat */
+      ] /* end subcat list */
+    }, /* end cat */
+    {
+      "cat": "System Control",
+
+      "subcats": [
+        {
+          "subcat": "Cursor",
+          "contents": [
+            {
+              "desc": "“Cursor Up” Control",
+              "cmds": [
+                { "cmd": "MNCUP" }
+              ]
+            },
+            {
+              "desc": "“Cursor Down” Control",
+              "cmds": [
+                { "cmd": "MNCDN" }
+              ]
+            },
+            {
+              "desc": "“Cursor Left” Control",
+              "cmds": [
+                { "cmd": "MNCLT" }
+              ]
+            },
+            {
+              "desc": "“Cursor Right” Control",
+              "cmds": [
+                { "cmd": "MNCRT" }
+              ]
+            },
+            {
+              "desc": "“Enter” Control",
+              "cmds": [
+                { "cmd": "MNENT" }
+              ]
+            },
+            {
+              "desc": "“Return/Back” Control",
+              "cmds": [
+                { "cmd": "MNRTN" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Menu",
+          "contents": [
+            {
+              "desc": "Setup Menu ON Control",
+              "cmds": [
+                { "cmd": "MNMEN ON" }
+              ]
+            },
+            {
+              "desc": "Setup Menu OFF Control",
+              "cmds": [
+                { "cmd": "MNMEN OFF" }
+              ]
+            },
+            {
+              "desc": "Request Menu Status",
+              "cmds": [
+                { "cmd": "MNMEN?" }
+              ]
+            },
+            {
+              "desc": "“OPTION” Control",
+              "cmds": [
+                { "cmd": "MNOPT" }
+              ]
+            },
+            {
+              "desc": "“INFO” Control",
+              "cmds": [
+                { "cmd": "MNINF" }
+              ]
+            },
+            {
+              "desc": "“Channel Level Adjust”menu on/offControl",
+              "cmds": [
+                { "cmd": "MNCHL" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "All Zone Stereo",
+          "contents": [
+            {
+              "desc": "All Zone Stereo ON Control",
+              "cmds": [
+                { "cmd": "MNZST ON" }
+              ]
+            },
+            {
+              "desc": "All Zone Stereo OFF Control",
+              "cmds": [
+                { "cmd": "MNZST OFF" }
+              ]
+            },
+            {
+              "desc": "Request All Zone Stereo Status",
+              "cmds": [
+                { "cmd": "MNZST?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Control Lock",
+          "contents": [
+            {
+              "desc": "REMOTE CONTROL LOCK ON/OFF\n",
+              "cmds": [
+                { "cmd": "SYREMOTE LOCK ON" },
+                { "cmd": "SYREMOTE LOCK OFF" }
+              ]
+            },
+            {
+              "desc": "PANEL BUTTON(Except MASTER VOL.)CONTROL LOCK ON",
+              "cmds": [
+                { "cmd": "SYPANEL LOCK ON" }
+              ]
+            },
+            {
+              "desc": "PANEL BUTTON & MASTER VOL. CONTROL LOCK ON ",
+              "cmds": [
+                { "cmd": "SYPANEL+V LOCK ON" }
+              ]
+            },
+            {
+              "desc": "PANEL BUTTON & MASTER VOL. CONTROL LOCK OFF",
+              "cmds": [
+                { "cmd": "SYPANEL LOCK OFF" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Trigger",
+          "contents": [
+            {
+              "desc": "Trigger 1 ON/OFF Control\n",
+              "cmds": [
+                { "cmd": "TR1 ON" },
+                { "cmd": "TR1 OFF" }
+              ]
+            },
+            {
+              "desc": "Trigger 2 ON/OFF Control\n",
+              "cmds": [
+                { "cmd": "TR2 ON" },
+                { "cmd": "TR2 OFF" }
+              ]
+            },
+            {
+              "desc": "Request Trigger Output Status",
+              "cmds": [
+                { "cmd": "TR?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Dimmer",
+          "contents": [
+            {
+              "desc": "Dimmer = Bright",
+              "cmds": [
+                { "cmd": "DIM BRI" }
+              ]
+            },
+            {
+              "desc": "Dimmer = Dim",
+              "cmds": [
+                { "cmd": "DIM DIM" }
+              ]
+            },
+            {
+              "desc": "Dimmer = Dark",
+              "cmds": [
+                { "cmd": "DIM DAR" }
+              ]
+            },
+            {
+              "desc": "Dimmer = Off",
+              "cmds": [
+                { "cmd": "DIM OFF" }
+              ]
+            },
+            {
+              "desc": "Dimmer setting change",
+              "cmds": [
+                { "cmd": "DIM SEL" }
+              ]
+            },
+            {
+              "desc": "Request Dimmer status",
+              "cmds": [
+                { "cmd": "DIM ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Remote Maintenance Mode",
+          "contents": [
+            {
+              "desc": "REMOTE MAINTENANCE Mode Start",
+              "cmds": [
+                { "cmd": "RM STA" }
+              ]
+            },
+            {
+              "desc": "REMOTE MAINTENANCE Mode End",
+              "cmds": [
+                { "cmd": "RM END" }
+              ]
+            },
+            {
+              "desc": "Request RM Status",
+              "cmds": [
+                { "cmd": "RM ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Auto Lip Sync",
+          "contents": [
+            {
+              "desc": "AUTO LIP SYNC=DISABLE",
+              "cmds": [
+                { "cmd": "SSHOSALS ON" }
+              ]
+            },
+            {
+              "desc": "AUTO LIP SYNC=ENABLE",
+              "cmds": [
+                { "cmd": "SSHOSALS OFF" }
+              ]
+            },
+            {
+              "desc": "Request Auto Lip Sync status",
+              "cmds": [
+                { "cmd": "SSHOS ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Component Video Output",
+          "contents": [
+            {
+              "desc": "COMPONENT VIDEO OUT=ZONE MAIN",
+              "cmds": [
+                { "cmd": "SSCVO ZMA" }
+              ]
+            },
+            {
+              "desc": "COMPONENT VIDEO OUT=ZONE2 ",
+              "cmds": [
+                { "cmd": "SSCVO Z2S" }
+              ]
+            },
+            {
+              "desc": "Return Component Video Output Status",
+              "cmds": [
+                { "cmd": "SSCVO ?" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Audio Channel",
+          "contents": [
+            {
+              "desc": "Audio Channel(Bilingual)=MAIN",
+              "cmds": [
+                { "cmd": "SSBLN MAI" }
+              ]
+            },
+            {
+              "desc": "Audio Channel(Bilingual)=SUB",
+              "cmds": [
+                { "cmd": "SSBLN SUB" }
+              ]
+            },
+            {
+              "desc": "Audio Channel(Bilingual)=MAIN+SUB",
+              "cmds": [
+                { "cmd": "SSBLN M+S" }
+              ]
+            },
+            {
+              "desc": "Request Bilingual Mode status",
+              "cmds": [
+                { "cmd": "SSBLN ?" }
+              ] /* end cmd list */
+            } /* end content */
+          ] /* end content list */
+        } /* end subcat */
+      ] /* end subcat list */
+    }, /* end cat */
+    {
+      "cat": "Online Music",
+      "subcats": [
+        {
+          "subcat": "Cursor",
+          "contents": [
+            {
+              "desc": "“Cursor Up” Control",
+              "cmds": [
+                { "cmd": "NS90" }
+              ]
+            },
+            {
+              "desc": "“Cursor Down” Control",
+              "cmds": [
+                { "cmd": "NS91" }
+              ]
+            },
+            {
+              "desc": "“Cursor Left” Control",
+              "cmds": [
+                { "cmd": "NS92" }
+              ]
+            },
+            {
+              "desc": "“Cursor Right” Control",
+              "cmds": [
+                { "cmd": "NS93" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Playback",
+          "contents": [
+            {
+              "desc": "“Enter (Play/Pause)” Control",
+              "cmds": [
+                { "cmd": "NS94" }
+              ]
+            },
+            {
+              "desc": "“Play” Control",
+              "cmds": [
+                { "cmd": "NS9A" }
+              ]
+            },
+            {
+              "desc": "“Pause” Control",
+              "cmds": [
+                { "cmd": "NS9B" }
+              ]
+            },
+            {
+              "desc": "“Stop” Control",
+              "cmds": [
+                { "cmd": "NS9C" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Playback Mode",
+          "contents": [
+            {
+              "desc": "“Skip Plus” Control",
+              "cmds": [
+                { "cmd": "NS9D" }
+              ]
+            },
+            {
+              "desc": "“Skip Minus” Control",
+              "cmds": [
+                { "cmd": "NS9E" }
+              ]
+            },
+            {
+              "desc": "\"\"Manual Search Plus\" Control\"",
+              "cmds": [
+                { "cmd": "NS9F" }
+              ]
+            },
+            {
+              "desc": "\"\"Manual Search Minus\" Control\"",
+              "cmds": [
+                { "cmd": "NS9G" }
+              ]
+            },
+            {
+              "desc": "\"\"Manual Search Stop\" Control\"",
+              "cmds": [
+                { "cmd": "NS9Z" }
+              ]
+            },
+            {
+              "desc": "“Repeat Folder”",
+              "cmds": [
+                { "cmd": "NS9R" }
+              ]
+            },
+            {
+              "desc": "“Repeat One” \n(Media Server,USB,iPod Direct,Bluetooth)",
+              "cmds": [
+                { "cmd": "NS9H" }
+              ]
+            },
+            {
+              "desc": "“Repeat All” \n(Media Server,USB,iPod Direct,Bluetooth)",
+              "cmds": [
+                { "cmd": "NS9I" }
+              ]
+            },
+            {
+              "desc": "“Repeat Off” \n(Media Server,USB,iPod Direct,Bluetooth)",
+              "cmds": [
+                { "cmd": "NS9J" }
+              ]
+            },
+            {
+              "desc": "“Random On”  (Media Server,USB,iPod Direct,Bluetooth)",
+              "cmds": [
+                { "cmd": "NS9K" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "iPod Mode",
+          "contents": [
+            {
+              "desc": "“Shuffle Albums” Control (iPod Direct Only)",
+              "cmds": [
+                { "cmd": "NS9L" }
+              ]
+            },
+            {
+              "desc": "“Random Off” (Media Server,USB,iPod Direct,Bluetooth)",
+              "cmds": [
+                { "cmd": "NS9M" }
+              ]
+            },
+            {
+              "desc": "“Repeat(toggle)”",
+              "cmds": [
+                { "cmd": "NSRPT" }
+              ]
+            },
+            {
+              "desc": "“Random(toggle)",
+              "cmds": [
+                { "cmd": "NSRND" }
+              ]
+            },
+            {
+              "desc": "Toggle Switch\nRemote Mode/Direct Mode\nControl (iPod Direct only)",
+              "cmds": [
+                { "cmd": "NS9W" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Page +/-",
+          "contents": [
+            {
+              "desc": "“Page Next” Control",
+              "cmds": [
+                { "cmd": "NS9X" }
+              ]
+            },
+            {
+              "desc": "“Page Previous” Control",
+              "cmds": [
+                { "cmd": "NS9Y" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Preset Direct",
+          "contents": [
+            {
+              "desc": "Direct Preset Select  (except Bluetooth, USB/iPod)",
+              "cmds": [
+                { "cmd": "NSB00" },
+                { "cmd": "NSB01" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Preset Memory",
+          "contents": [
+            {
+              "desc": "Preset Memory  (except Bluetooth, USB/iPod)\n**:00-35 (00:01/35:36) FY14~",
+              "cmds": [
+                { "cmd": "NSC00" },
+                { "cmd": "NSC01" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "Preset Name",
+          "contents": [
+            {
+              "desc": "Net Audio Preset Name status(UTF-8)\nRequest Onscreen Display Information List ",
+              "cmds": [
+                { "cmd": "NSH" },
+                { "cmd": "NSA" }
+              ]
+            }
+          ]
+        },
+        {
+          "subcat": "OSD Info",
+          "contents": [
+            {
+              "desc": "Request Onscreen Display Information List",
+              "cmds": [
+                { "cmd": "NSA" }
+              ] /* end cmd list */
+            } /* end content */
+          ] /* end content list */
+        } /* end subcat */
+      ] /* end subcat list */
+    } /* end cat */
+  ] /* end categoryies list */
+} /* end json */

@@ -1,0 +1,12 @@
+.vs/
+Backup/
+MarantzController/AsyncOperationManagerExample.cs
+MarantzController/Class1.cs
+MarantzController/Marantz.csproj
+MarantzController/Program - pre LevelMapper.cs
+MarantzController/bin/
+MarantzController/cmds2.json
+MarantzController/obj/
+MarantzController/packages.config
+UpgradeLog.htm
+packages/
