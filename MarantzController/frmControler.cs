@@ -17,6 +17,7 @@ namespace MarantzController
         Dispatcher d;
         Controller c;
         SendReceive sr;
+        Resizer rz;
         System.Threading.Thread send_receive_thread;
 
         List<string> command_list = new List<string>();
@@ -24,6 +25,8 @@ namespace MarantzController
 
         Dictionary<String, LevelController> levctrls = new Dictionary<string, LevelController>();
         // factory has it's own dictionary, but it uses a different key for each level-controller
+
+        Dictionary<String, MultiLevelController> balance_ctrls = new Dictionary<string, MultiLevelController>();
 
         private delegate void SafeCallDelegate (object sender, MessageTranferEventArgs e);
 
@@ -34,13 +37,22 @@ namespace MarantzController
 
         private void Form1_Load (object sender, EventArgs e)
         {
-            if (System.IO.File.Exists(Globs.json_file2)) {
+            if (Globs.NO_SEND) {
+                this.chkSEND.Checked = false;
+            } else {
+                this.chkSEND.Checked = true;
+            }
+            if (System.IO.File.Exists(Globs.json_file3)) {
+                Load_Tree(Globs.json_file3);
+            } else if (System.IO.File.Exists(Globs.json_file2)) {
                 Load_Tree(Globs.json_file2);
             } else {
                 Load_Tree(Globs.json_file);
             }
 
-            this.d = new Dispatcher();  // Dispatcher handle events
+            ShowSliderLevelLegend(this.txtScrollLegend);
+
+            this.d = new Dispatcher();  // Dispatcher handles events
             this.d.ui = this;
 
             this.d.MessageSender += AddToSendList;
@@ -49,13 +61,17 @@ namespace MarantzController
             this.d.SendClearer += ClearSendList;
             this.d.ConnectNotifier += Connected;
             this.d.SliderSetter += SetSliderLevel;
+            this.d.ResizeHandler += SetSliderLevel;
             this.d.ParameterShower += ShowParameterValues;
             this.d.ReceiveProcessor += ProcessReceivedMessage;
             this.d.MarantzLevelUpdater += UpdateMarantzLevels;
+            this.d.ThumbResizer += ResizeAllThumbs;
 
             this.c = new Controller(this.d);
 
             this.d.queue = this.c;
+
+            this.rz = new Resizer(this.d);
 
             this.sr = new SendReceive(this.d);   // Connection manages connection to remote host
             this.d.connection = this.sr;
@@ -104,29 +120,55 @@ namespace MarantzController
             lc = LevelControllerFactory.New("Center-Speaker harder|softer", "CVC", vert, (ScrollBar)this.zCenterVolume, this.txtCenterVolume, this.d);
             this.levctrls.Add("zCenterVolume", lc);
 
+            lc = LevelControllerFactory.New("Test Balance Control", "-", horiz, (ScrollBar)this.sbSlider, this.txtSlider, this.d);
+            this.levctrls.Add("sbSlider", lc);
+
             int n = 0;
-            //                                                   Left Commands                             Right Commands
-            mlc = new MultiLevelController("Master L|R Balance", new string[] { "CVFL", "CVSBL", "CVSL" }, new string[] { "CVFR", "CVSBR", "CVSR" }, horiz, (ScrollBar)this.zMasterBalance, this.txtMasterBalance, this.d);
+            mlc = new MultiLevelController("Master L|R Balance", 
+                                           new string[] { "CVFL", "CVSBL" },  /* left top */
+                                           new string[] { "CVFR", "CVSBR" },  /* right top */
+                                           new string[] { "CVSL" },           /* left bottom */
+                                           new string[] { "CVSR" },           /* right bottom */
+                                           horiz, (ScrollBar)this.zMasterBalance, this.txtMasterBalance, this.d);
             foreach (LevelController tlc in mlc.level_controllers()) {
                 this.levctrls.Add(String.Format("L|R {0}",n++), lc);
             }
             this.levctrls.Add("zMasterBalance", mlc);
+            this.balance_ctrls.Add("zMasterBalance", mlc);
 
-            //                                                   Front Commands                                     Back Commands
-            mlc = new MultiLevelController("Front|Back Balance", new string[] { "CVFL", "CVSBL", "CVFR", "CVSBR" }, new string[] { "CVSL", "CVSR" }, vert, (ScrollBar)this.zBalanceFrontRear, this.txtBalanceFrontRear, this.d);
+            //                                                   Back Commands                    Front Commands
+            mlc = new MultiLevelController("Front|Back Balance", 
+                                           new string[] { "CVFL", "CVSBL", "CVC" },  /* left top */
+                                           new string[] { "CVFR", "CVSBR", "CVC" },  /* right top */
+                                           new string[] { "CVSL" },                  /* left bottom */
+                                           new string[] { "CVSR" },                  /* right bottom */
+                                           vert, (ScrollBar)this.zBalanceFrontRear, this.txtBalanceFrontRear, this.d);
             foreach (LevelController tlc in mlc.level_controllers()) {
                 this.levctrls.Add(String.Format("F|B {0}", n++), lc);
             }
             this.levctrls.Add("zBalanceFrontRear", mlc);
+            this.balance_ctrls.Add("zBalanceFrontRear", mlc);
 
             //                                                     Left Commands            Right Commands
-            mlc = new MultiLevelController("Surround L|R Balance", new string[] { "CVSL" }, new string[] { "CVSR" }, horiz, (ScrollBar)this.zRearBalance, this.txtRearBalance, this.d);
+            mlc = new MultiLevelController("Surround L|R Balance", new string[] { "CVSL" }, new string[] { "CVSR" },
+                                           new string[] { }, new string[] { },
+                                           horiz, (ScrollBar)this.zRearBalance, this.txtRearBalance, this.d);
             foreach (LevelController tlc in mlc.level_controllers()) {
                 this.levctrls.Add(String.Format("Surr L|R {0}", n++), lc);
             }
             this.levctrls.Add("zRearBalance", mlc);
+            this.balance_ctrls.Add("zRearBalance", mlc);
+
+            foreach (string levctrl in this.levctrls.Keys) {
+                LevelController tlc = this.levctrls[levctrl];
+                tlc.balance_controlers = this.balance_ctrls;
+            }
+
+            this.d.ResizeAllThumbs();  // need to manually trigger resize so thumbs are the correct size
 
             this.send_receive_thread.Start(this.sr);
+
+            mlc.test_balance();
 
             //this.d.Start_Session();  // tell ReceiveThread to expect output from Receiver
 
@@ -152,12 +194,12 @@ namespace MarantzController
                 }
             }
 
-            c.SetCurrentMarantzLevels(LevelControllerFactory.lev_ctrls, "MV");    // should only need to send "MV?" message
+            c.SetCurrentMarantzLevels(LevelControllerFactory.lev_ctrls, "MV");  // should only need to send "MV?" message
             c.SetCurrentMarantzLevels(LevelControllerFactory.lev_ctrls, "CV");  // reply will be sent to ProcessReceivedMessage
 
             foreach (string levctrl in frm.levctrls.Keys) {
                 LevelController lc = frm.levctrls[levctrl];
-                Console.WriteLine(String.Format("{0} - {1}",lc.descr,lc.marantz_current_level));
+                Console.WriteLine(String.Format("{0} - {1}",lc.descr,lc.marantz_current_balance));
             }
         }
 
@@ -206,6 +248,14 @@ namespace MarantzController
             }
         }
 
+        static void ResizeAllThumbs(object sender, MessageTranferEventArgs e)
+        {
+            frmControler frm = (frmControler)e.Form;
+            Controller c = e.Dispatcher.queue;
+
+            c.ResizeAllThumbs(LevelControllerFactory.lev_ctrls);
+        }
+
         static void UpdateMarantzLevels(object sender, MessageTranferEventArgs e)
         {
             frmControler frm = (frmControler)e.Form;
@@ -233,16 +283,38 @@ namespace MarantzController
             ScrollBar sbar = lc.sbar;
             TextBox txt = lc.txt;
 
-            if ((sbar != null) && (lc.gui_flags[LevelController.fMin] || lc.gui_flags[LevelController.fMax] || lc.gui_flags[LevelController.fLev])) {
+            if ((sbar != null) && (lc.gui_flags[LevelController.fMin] || lc.gui_flags[LevelController.fMax] || lc.gui_flags[LevelController.fLev] || lc.gui_flags[LevelController.fResize])) {
                 if (sbar.InvokeRequired) {
                     var d = new SafeCallDelegate(SetSliderLevel);
                     sbar.Invoke(d, new object[] { sender, e });
                 } else {
+                    if (lc.gui_flags[LevelController.fMin] || lc.gui_flags[LevelController.fMax] || lc.gui_flags[LevelController.fResize]) {
+                        // sliders don't return a level between min_level & max_level
+                        // they return the top of a page where the page is located between min_level & max_level
+                        int minSbar = lc.slider_min_level;
+                        int maxSbar = lc.slider_max_level;
+
+                        LevelMapper tmapper = new LevelMapper((double)minSbar, (double)maxSbar, 0.0, ((sbar.Width > sbar.Height) ? (double)sbar.Width : (double)sbar.Height));
+                    //  pageSize = tmapper.B_to_intA(1.2 * (double)((sbar.Width > sbar.Height) ? (double)sbar.Height : (double)sbar.Width));
+
+                        int pageSize = tmapper.B_to_intA(30.0);  // level -> slider
+
+                    //  maxSbar = maxSbar + pageSize;  --- let controller take care of fact that max value is (max -  pagesize)
+                        Console.WriteLine("Scroll-bar: length = {0}  => 30 =>  pageSize = {1}", ((sbar.Width > sbar.Height) ? (double)sbar.Width : (double)sbar.Height), pageSize);
+
+                        sbar.LargeChange = pageSize;
+                        sbar.Minimum = minSbar;
+                        sbar.Maximum = maxSbar;
+
+                    //  if (lc.gui_flags[LevelController.fLev]) {
+                    //     sbar.Value = lc.last_slider_value; // load_slider_parms is going to trash last_slider_value !!!
+                    //  }
+
+                        lc.load_slider_parms(); // corrects last_slider_value based on new pageSize
+                    }
                     if (lc.gui_flags[LevelController.fMin]) {
-                        sbar.Minimum = lc.slider_min_level;
                     }
                     if (lc.gui_flags[LevelController.fMax]) {
-                        sbar.Maximum = lc.slider_max_level;
                     }
                     if (lc.gui_flags[LevelController.fLev]) {
                         sbar.Value = lc.last_slider_value;
@@ -261,6 +333,7 @@ namespace MarantzController
             lc.gui_flags[LevelController.fMax] = false;
             lc.gui_flags[LevelController.fLev] = false;
             lc.gui_flags[LevelController.fTxt] = false;
+            lc.gui_flags[LevelController.fResize] = false;
         }
 
         static void ShowParameterValues(object sender, MessageTranferEventArgs e)
@@ -278,15 +351,30 @@ namespace MarantzController
                 // 100
                 // 12.5 >
                 // 10.6 <
-                string slider = lc.last_slider_value < 0 ? "---" : String.Format("{0:00}", lc.last_slider_value);
-                string requested = lc.marantz_current_level < 0.0 ? "--.-" : String.Format("{0:00.0}", lc.marantz_current_level);
-                string reported = lc.reported_level < 0.0 ? "--.-" : String.Format("{0:00.0}", lc.reported_level);
+                if (lc.last_slider_value < -50 || lc.last_slider_value > 100) {
+                    bool stop_here = true;
+                }
+                string slider = lc.is_unknown(lc.last_slider_value) ? "---" : String.Format("{0:00}", lc.last_slider_value);
+                string requested = lc.is_unknown(lc.marantz_current_balance) ? "--.-" : String.Format("{0:00.0}", lc.marantz_current_balance);
+                if (!lc.is_unknown(lc.balance_adjusted_level)) {
+                    if (lc.marantz_current_balance != lc.balance_adjusted_level) {
+                        requested = lc.is_unknown(lc.balance_adjusted_level) ? "--.-" : String.Format("{0:00.0}", lc.balance_adjusted_level);
+                    }
+                }
+                string reported = lc.is_unknown(lc.reported_level) ? "--.-" : String.Format("{0:00.0}", lc.reported_level);
                 string s = String.Format("{0}\r\n{1} >\r\n{2} <", slider, requested, reported);
                 txt.Text = s; // s.Replace(".0", ""); 
                     //  txt.Text = lc.last_slider_value.ToString();
             //  }
                 lc.gui_flags[LevelController.fTxt] = false;
             }
+        }
+
+        static void ShowSliderLevelLegend(TextBox txt)
+        {
+            string s = String.Format("{0}\r\n{1} >\r\n{2} <", "current slider value", "value sent to marantz", "value received from marantz");
+            txt.Text = s; // s.Replace(".0", ""); 
+                          //  txt.Text = lc.last_slider_value.ToString();
         }
 
         static void AddToSendList (object sender, MessageTranferEventArgs e)
@@ -481,7 +569,7 @@ namespace MarantzController
 
             ScrollBar sbar = lc.sbar;
 
-            int new_lev = sbar.Value;
+            int new_lev = sbar.Value;  // Math.Min(lc.slider_max_level, Math.Max(lc.slider_min_level, sbar.Value));
 
             lc.change_level(new_lev);
 
@@ -495,9 +583,9 @@ namespace MarantzController
 
             ScrollBar sbar = mlc.sbar;
 
-            int new_lev = sbar.Value;
+            int new_lev = Math.Min(mlc.slider_max_level, Math.Max(mlc.slider_min_level, sbar.Value));
 
-            mlc.change_level(new_lev);
+            mlc.change_balance(new_lev);
 
             // compare current val to lastval  .. calculate % increase/descrease
             // increase all left|top marantz volumes by same %
@@ -530,6 +618,35 @@ namespace MarantzController
         private void LstSend_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmControler_ResizeEnd(object sender, EventArgs e)
+        {
+            this.rz.HandleResize();
+        }
+
+        private void chkSEND_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkSEND.Checked) {
+                Globs.NO_SEND = false;
+            } else {
+                Globs.NO_SEND = true;
+            }
+        }
+
+        private void sbSlider_Scroll(object sender, ScrollEventArgs e)
+        {
+            LevelController lc = this.levctrls["sbSlider"];
+            ScrollBar sbar = lc.sbar;
+            TextBox txt = lc.txt;
+
+            double lev = lc.SliderValue_to_Level((double)sbar.Value);
+
+            string slider = String.Format("{0:00}", sbar.Value);
+            string requested = String.Format("{0:00.0}", lev);
+            string reported = "--.-";
+            string s = String.Format("{0}\r\n{1} >\r\n{2} <", slider, requested, reported);
+            txt.Text = s;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.lstSend = new System.Windows.Forms.ListBox();
             this.lstReceive = new System.Windows.Forms.ListView();
@@ -35,17 +36,20 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabVolume = new System.Windows.Forms.TabPage();
+            this.chkSEND = new System.Windows.Forms.CheckBox();
             this.butReset = new System.Windows.Forms.Button();
             this.txtFrontRight = new System.Windows.Forms.TextBox();
             this.txtFrontLeft = new System.Windows.Forms.TextBox();
             this.txtBalanceFrontRear = new System.Windows.Forms.TextBox();
             this.txtBassLeft = new System.Windows.Forms.TextBox();
+            this.txtSlider = new System.Windows.Forms.TextBox();
             this.txtMasterVolume = new System.Windows.Forms.TextBox();
             this.txtMasterBalance = new System.Windows.Forms.TextBox();
             this.txtCenterVolume = new System.Windows.Forms.TextBox();
             this.txtBassRight = new System.Windows.Forms.TextBox();
             this.txtBackRight = new System.Windows.Forms.TextBox();
             this.txtRearBalance = new System.Windows.Forms.TextBox();
+            this.txtScrollLegend = new System.Windows.Forms.TextBox();
             this.txtBackLeft = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -62,6 +66,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.zBalanceFrontRear = new System.Windows.Forms.VScrollBar();
+            this.sbSlider = new System.Windows.Forms.HScrollBar();
             this.zMasterVolume = new System.Windows.Forms.HScrollBar();
             this.zBackRight = new System.Windows.Forms.VScrollBar();
             this.zBackLeft = new System.Windows.Forms.VScrollBar();
@@ -78,6 +83,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabCommands = new System.Windows.Forms.TabPage();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -162,17 +168,20 @@
             // tabVolume
             // 
             this.tabVolume.BackColor = System.Drawing.Color.RosyBrown;
+            this.tabVolume.Controls.Add(this.chkSEND);
             this.tabVolume.Controls.Add(this.butReset);
             this.tabVolume.Controls.Add(this.txtFrontRight);
             this.tabVolume.Controls.Add(this.txtFrontLeft);
             this.tabVolume.Controls.Add(this.txtBalanceFrontRear);
             this.tabVolume.Controls.Add(this.txtBassLeft);
+            this.tabVolume.Controls.Add(this.txtSlider);
             this.tabVolume.Controls.Add(this.txtMasterVolume);
             this.tabVolume.Controls.Add(this.txtMasterBalance);
             this.tabVolume.Controls.Add(this.txtCenterVolume);
             this.tabVolume.Controls.Add(this.txtBassRight);
             this.tabVolume.Controls.Add(this.txtBackRight);
             this.tabVolume.Controls.Add(this.txtRearBalance);
+            this.tabVolume.Controls.Add(this.txtScrollLegend);
             this.tabVolume.Controls.Add(this.txtBackLeft);
             this.tabVolume.Controls.Add(this.label11);
             this.tabVolume.Controls.Add(this.label15);
@@ -189,6 +198,7 @@
             this.tabVolume.Controls.Add(this.label2);
             this.tabVolume.Controls.Add(this.label1);
             this.tabVolume.Controls.Add(this.zBalanceFrontRear);
+            this.tabVolume.Controls.Add(this.sbSlider);
             this.tabVolume.Controls.Add(this.zMasterVolume);
             this.tabVolume.Controls.Add(this.zBackRight);
             this.tabVolume.Controls.Add(this.zBackLeft);
@@ -212,6 +222,20 @@
             this.tabVolume.Text = "Volume";
             this.tabVolume.Click += new System.EventHandler(this.TabVolume_Click);
             // 
+            // chkSEND
+            // 
+            this.chkSEND.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkSEND.AutoSize = true;
+            this.chkSEND.BackColor = System.Drawing.Color.Transparent;
+            this.chkSEND.Location = new System.Drawing.Point(536, 574);
+            this.chkSEND.Name = "chkSEND";
+            this.chkSEND.Size = new System.Drawing.Size(56, 17);
+            this.chkSEND.TabIndex = 33;
+            this.chkSEND.Text = "SEND";
+            this.toolTip1.SetToolTip(this.chkSEND, "Send commnds to Marantz");
+            this.chkSEND.UseVisualStyleBackColor = false;
+            this.chkSEND.CheckedChanged += new System.EventHandler(this.chkSEND_CheckedChanged);
+            // 
             // butReset
             // 
             this.butReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -221,6 +245,7 @@
             this.butReset.Size = new System.Drawing.Size(75, 23);
             this.butReset.TabIndex = 32;
             this.butReset.Text = "RESET";
+            this.toolTip1.SetToolTip(this.butReset, "Reset everything to initial values");
             this.butReset.UseVisualStyleBackColor = false;
             this.butReset.Click += new System.EventHandler(this.ButReset_Click);
             // 
@@ -228,20 +253,20 @@
             // 
             this.txtFrontRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFrontRight.BackColor = System.Drawing.Color.LightBlue;
-            this.txtFrontRight.Location = new System.Drawing.Point(456, 23);
+            this.txtFrontRight.Location = new System.Drawing.Point(448, 23);
             this.txtFrontRight.Multiline = true;
             this.txtFrontRight.Name = "txtFrontRight";
-            this.txtFrontRight.Size = new System.Drawing.Size(40, 49);
+            this.txtFrontRight.Size = new System.Drawing.Size(47, 47);
             this.txtFrontRight.TabIndex = 31;
             this.txtFrontRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtFrontLeft
             // 
             this.txtFrontLeft.BackColor = System.Drawing.Color.LightBlue;
-            this.txtFrontLeft.Location = new System.Drawing.Point(122, 23);
+            this.txtFrontLeft.Location = new System.Drawing.Point(123, 23);
             this.txtFrontLeft.Multiline = true;
             this.txtFrontLeft.Name = "txtFrontLeft";
-            this.txtFrontLeft.Size = new System.Drawing.Size(40, 49);
+            this.txtFrontLeft.Size = new System.Drawing.Size(47, 47);
             this.txtFrontLeft.TabIndex = 30;
             this.txtFrontLeft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -252,29 +277,41 @@
             this.txtBalanceFrontRear.Location = new System.Drawing.Point(555, 500);
             this.txtBalanceFrontRear.Multiline = true;
             this.txtBalanceFrontRear.Name = "txtBalanceFrontRear";
-            this.txtBalanceFrontRear.Size = new System.Drawing.Size(40, 49);
+            this.txtBalanceFrontRear.Size = new System.Drawing.Size(47, 47);
             this.txtBalanceFrontRear.TabIndex = 29;
             this.txtBalanceFrontRear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBassLeft
             // 
             this.txtBassLeft.BackColor = System.Drawing.Color.LightBlue;
-            this.txtBassLeft.Location = new System.Drawing.Point(15, 66);
+            this.txtBassLeft.Location = new System.Drawing.Point(8, 67);
             this.txtBassLeft.Multiline = true;
             this.txtBassLeft.Name = "txtBassLeft";
-            this.txtBassLeft.Size = new System.Drawing.Size(40, 49);
+            this.txtBassLeft.Size = new System.Drawing.Size(47, 47);
             this.txtBassLeft.TabIndex = 29;
-            this.txtBassLeft.Text = "100\r\n88.8 >\r\n99.9 <";
+            this.txtBassLeft.Text = "100\r\n188.8 >\r\n199.9 <";
             this.txtBassLeft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtSlider
+            // 
+            this.txtSlider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSlider.BackColor = System.Drawing.Color.SlateBlue;
+            this.txtSlider.ForeColor = System.Drawing.Color.White;
+            this.txtSlider.Location = new System.Drawing.Point(391, 315);
+            this.txtSlider.Multiline = true;
+            this.txtSlider.Name = "txtSlider";
+            this.txtSlider.Size = new System.Drawing.Size(60, 47);
+            this.txtSlider.TabIndex = 29;
+            this.txtSlider.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtMasterVolume
             // 
             this.txtMasterVolume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMasterVolume.BackColor = System.Drawing.Color.Thistle;
-            this.txtMasterVolume.Location = new System.Drawing.Point(471, 315);
+            this.txtMasterVolume.Location = new System.Drawing.Point(464, 315);
             this.txtMasterVolume.Multiline = true;
             this.txtMasterVolume.Name = "txtMasterVolume";
-            this.txtMasterVolume.Size = new System.Drawing.Size(40, 49);
+            this.txtMasterVolume.Size = new System.Drawing.Size(47, 47);
             this.txtMasterVolume.TabIndex = 29;
             this.txtMasterVolume.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -282,10 +319,10 @@
             // 
             this.txtMasterBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMasterBalance.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.txtMasterBalance.Location = new System.Drawing.Point(448, 238);
+            this.txtMasterBalance.Location = new System.Drawing.Point(441, 238);
             this.txtMasterBalance.Multiline = true;
             this.txtMasterBalance.Name = "txtMasterBalance";
-            this.txtMasterBalance.Size = new System.Drawing.Size(40, 49);
+            this.txtMasterBalance.Size = new System.Drawing.Size(47, 47);
             this.txtMasterBalance.TabIndex = 29;
             this.txtMasterBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -293,10 +330,10 @@
             // 
             this.txtCenterVolume.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCenterVolume.BackColor = System.Drawing.Color.LightBlue;
-            this.txtCenterVolume.Location = new System.Drawing.Point(286, 39);
+            this.txtCenterVolume.Location = new System.Drawing.Point(283, 39);
             this.txtCenterVolume.Multiline = true;
             this.txtCenterVolume.Name = "txtCenterVolume";
-            this.txtCenterVolume.Size = new System.Drawing.Size(40, 49);
+            this.txtCenterVolume.Size = new System.Drawing.Size(47, 47);
             this.txtCenterVolume.TabIndex = 29;
             this.txtCenterVolume.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -304,10 +341,10 @@
             // 
             this.txtBassRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBassRight.BackColor = System.Drawing.Color.LightBlue;
-            this.txtBassRight.Location = new System.Drawing.Point(564, 67);
+            this.txtBassRight.Location = new System.Drawing.Point(561, 67);
             this.txtBassRight.Multiline = true;
             this.txtBassRight.Name = "txtBassRight";
-            this.txtBassRight.Size = new System.Drawing.Size(40, 49);
+            this.txtBassRight.Size = new System.Drawing.Size(47, 47);
             this.txtBassRight.TabIndex = 29;
             this.txtBassRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -318,7 +355,7 @@
             this.txtBackRight.Location = new System.Drawing.Point(455, 446);
             this.txtBackRight.Multiline = true;
             this.txtBackRight.Name = "txtBackRight";
-            this.txtBackRight.Size = new System.Drawing.Size(40, 49);
+            this.txtBackRight.Size = new System.Drawing.Size(47, 47);
             this.txtBackRight.TabIndex = 29;
             this.txtBackRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -326,12 +363,23 @@
             // 
             this.txtRearBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRearBalance.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.txtRearBalance.Location = new System.Drawing.Point(336, 496);
+            this.txtRearBalance.Location = new System.Drawing.Point(330, 496);
             this.txtRearBalance.Multiline = true;
             this.txtRearBalance.Name = "txtRearBalance";
-            this.txtRearBalance.Size = new System.Drawing.Size(40, 49);
+            this.txtRearBalance.Size = new System.Drawing.Size(47, 47);
             this.txtRearBalance.TabIndex = 29;
             this.txtRearBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtScrollLegend
+            // 
+            this.txtScrollLegend.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtScrollLegend.BackColor = System.Drawing.Color.DarkGray;
+            this.txtScrollLegend.Location = new System.Drawing.Point(183, 417);
+            this.txtScrollLegend.Multiline = true;
+            this.txtScrollLegend.Name = "txtScrollLegend";
+            this.txtScrollLegend.Size = new System.Drawing.Size(180, 49);
+            this.txtScrollLegend.TabIndex = 29;
             // 
             // txtBackLeft
             // 
@@ -340,7 +388,7 @@
             this.txtBackLeft.Location = new System.Drawing.Point(78, 435);
             this.txtBackLeft.Multiline = true;
             this.txtBackLeft.Name = "txtBackLeft";
-            this.txtBackLeft.Size = new System.Drawing.Size(40, 49);
+            this.txtBackLeft.Size = new System.Drawing.Size(47, 47);
             this.txtBackLeft.TabIndex = 29;
             this.txtBackLeft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -348,6 +396,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Location = new System.Drawing.Point(512, 550);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(99, 13);
@@ -357,6 +406,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Location = new System.Drawing.Point(19, 287);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(33, 13);
@@ -367,6 +417,7 @@
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Location = new System.Drawing.Point(570, 287);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(33, 13);
@@ -376,6 +427,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Location = new System.Drawing.Point(18, 274);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(36, 13);
@@ -385,6 +437,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(22, 261);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 13);
@@ -395,6 +448,7 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Location = new System.Drawing.Point(568, 274);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(36, 13);
@@ -405,6 +459,7 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Location = new System.Drawing.Point(570, 261);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 13);
@@ -415,6 +470,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Location = new System.Drawing.Point(290, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(33, 13);
@@ -425,6 +481,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Location = new System.Drawing.Point(288, 226);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
@@ -434,6 +491,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(125, 274);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 13);
@@ -444,6 +502,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(18, 351);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 13);
@@ -454,6 +513,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(411, 431);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 13);
@@ -464,6 +524,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(33, 420);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 13);
@@ -474,6 +535,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(142, 532);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
@@ -489,7 +551,18 @@
             this.zBalanceFrontRear.Name = "zBalanceFrontRear";
             this.zBalanceFrontRear.Size = new System.Drawing.Size(18, 285);
             this.zBalanceFrontRear.TabIndex = 17;
+            this.toolTip1.SetToolTip(this.zBalanceFrontRear, "set balance between everything in front of you and everything behind you ");
             this.zBalanceFrontRear.Scroll += new System.Windows.Forms.ScrollEventHandler(this.ZBalanceFrontRear_Scroll);
+            // 
+            // sbSlider
+            // 
+            this.sbSlider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbSlider.Location = new System.Drawing.Point(22, 324);
+            this.sbSlider.Name = "sbSlider";
+            this.sbSlider.Size = new System.Drawing.Size(357, 18);
+            this.sbSlider.TabIndex = 16;
+            this.sbSlider.Scroll += new System.Windows.Forms.ScrollEventHandler(this.sbSlider_Scroll);
             // 
             // zMasterVolume
             // 
@@ -531,7 +604,7 @@
             // zBassRight
             // 
             this.zBassRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.zBassRight.Location = new System.Drawing.Point(575, 119);
+            this.zBassRight.Location = new System.Drawing.Point(576, 119);
             this.zBassRight.Name = "zBassRight";
             this.zBassRight.Size = new System.Drawing.Size(18, 138);
             this.zBassRight.TabIndex = 12;
@@ -554,6 +627,8 @@
             this.zMasterBalance.Name = "zMasterBalance";
             this.zMasterBalance.Size = new System.Drawing.Size(358, 18);
             this.zMasterBalance.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.zMasterBalance, "change balance between everything on the left-side and everything on the right si" +
+        "de");
             this.zMasterBalance.Scroll += new System.Windows.Forms.ScrollEventHandler(this.ZMasterBalance_Scroll);
             // 
             // zRearBalance
@@ -564,6 +639,7 @@
             this.zRearBalance.Name = "zRearBalance";
             this.zRearBalance.Size = new System.Drawing.Size(229, 18);
             this.zRearBalance.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.zRearBalance, "set balance between left-surround and right-surround");
             this.zRearBalance.Scroll += new System.Windows.Forms.ScrollEventHandler(this.ZRearBalance_Scroll);
             // 
             // panel7
@@ -648,6 +724,7 @@
             this.Text = "Marantz Controller";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmControler_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResizeEnd += new System.EventHandler(this.frmControler_ResizeEnd);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -712,5 +789,10 @@
         private System.Windows.Forms.TextBox txtFrontLeft;
         private System.Windows.Forms.Button butReset;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.TextBox txtScrollLegend;
+        private System.Windows.Forms.CheckBox chkSEND;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox txtSlider;
+        private System.Windows.Forms.HScrollBar sbSlider;
     }
 }
